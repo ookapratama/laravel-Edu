@@ -1,4 +1,5 @@
 ## Pembelajaran Laravel
 
 - **[Fundamental dan Struktur Projek]**
-- **[Template Engine dan Database Migration(Coming Soon)]**
+- **[Template Engine dan Database Migration]**
+- **[CRUD with Eloquent ORM]**
