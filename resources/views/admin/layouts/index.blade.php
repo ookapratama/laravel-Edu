@@ -1,0 +1,5 @@
+@include('admin.layouts.head')
+@include('admin.layouts.nav')
+@include('admin.layouts.side')
+@include($content)
+@include('admin.layouts.footer')

@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function login(){
-        return view('user.login');
+
+        $content = 'user/login';
+        return view('user.layouts.index', ['content' => $content]);
+
     }
 }

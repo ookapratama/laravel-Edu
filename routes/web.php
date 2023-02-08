@@ -13,6 +13,7 @@
 |
 */
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,3 +21,5 @@ Route::get('/', function () {
 });
 
 Route::get('/login',[UserController::class, 'login'])->name('login');
+
+Route::get('/admin',[AdminController::class, 'admin']);
