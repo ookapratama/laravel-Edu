@@ -13,7 +13,8 @@
 |
 */
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\elo\AdminController;
+use App\Http\Controllers\elo\MhsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,4 +23,15 @@ Route::get('/', function () {
 
 Route::get('/login',[UserController::class, 'login'])->name('login');
 
-Route::get('/admin',[AdminController::class, 'admin']);
+
+Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\elo'], function(){
+    
+    Route::get('/',[AdminController::class, 'admin'])->name('admin');
+
+    Route::group(['prefix' => 'mahasiswa'], function() {
+        Route::get('/', [MhsController::class, 'index'])->name('index.mahasiswa');
+        Route::get('/add', [MhsController::class, 'add'])->name('add.mahasiswa');
+
+    });
+
+});
