@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\elo'], f
 
     Route::group(['prefix' => 'mahasiswa'], function () {
         Route::get('/', [MhsController::class, 'index'])->name('index.mahasiswa');
+        Route::get('/add', [MhsController::class, 'add'])->name('add.mahasiswa');
         Route::post('/store', [MhsController::class, 'store'])->name('store.mahasiswa');
         Route::get('/edit/{id}', [MhsController::class, 'edit'])->name('edit.mahasiswa');
         Route::put('/update', [MhsController::class, 'update'])->name('update.mahasiswa');

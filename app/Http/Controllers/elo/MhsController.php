@@ -14,6 +14,10 @@ class MhsController extends Controller
         return view('admin.mahasiswa.index', ['datas' => $datas]);
     }
 
+    public function add() {
+        return view('admin.mahasiswa.add');
+    }
+
     public function store(Request $request) 
     {
         // dd($request);
@@ -23,7 +27,13 @@ class MhsController extends Controller
 
     public function edit($id) {
         $data = Mahasiswa::find($id);
-        return response()->json(['data' => $data]);
+        return view('admin.mahasiswa.edit', ['data' => $data]);
+    }
+
+    public function update(Request $request) {
+        $data = Mahasiswa::find($request->id);
+        $data->update($request->all());
+        return redirect()->route('index.mahasiswa');
     }
 
     public function destroy ($id) {

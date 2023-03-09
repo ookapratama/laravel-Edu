@@ -9,7 +9,7 @@
         <ul class="sidebar-menu  mb-4">
             <li class="menu-header">Dashboard</li>
             <li class="{{ Route::is('admin') ? 'active' : ''}}">
-                <a class="nav-link" href="#"><i class="fas fa-fire"></i> <span>Dashboard</span></a>
+                <a class="nav-link" href="{{ route('admin') }} "><i class="fas fa-fire"></i> <span>Dashboard</span></a>
             </li>
             <li class="menu-header">Data</li>
             <li class="nav-item {{ Route::is('index.mahasiswa') ? 'active' : ''}}">
