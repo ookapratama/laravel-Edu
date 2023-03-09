@@ -12,6 +12,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\elo\AdminController;
 use App\Http\Controllers\elo\MhsController;
@@ -21,17 +22,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login',[UserController::class, 'login'])->name('login');
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
 
-Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\elo'], function(){
-    
-    Route::get('/',[AdminController::class, 'admin'])->name('admin');
+Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\elo'], function () {
 
-    Route::group(['prefix' => 'mahasiswa'], function() {
+    Route::get('/', [AdminController::class, 'admin'])->name('admin');
+
+    Route::group(['prefix' => 'mahasiswa'], function () {
         Route::get('/', [MhsController::class, 'index'])->name('index.mahasiswa');
-        Route::get('/add', [MhsController::class, 'add'])->name('add.mahasiswa');
-
+        Route::post('/store', [MhsController::class, 'store'])->name('store.mahasiswa');
+        Route::get('/edit/{id}', [MhsController::class, 'edit'])->name('edit.mahasiswa');
+        Route::put('/update', [MhsController::class, 'update'])->name('update.mahasiswa');
+        Route::delete('/destroy/{id}', [MhsController::class, 'destroy'])->name('destroy.mahasiswa');
     });
-
 });
