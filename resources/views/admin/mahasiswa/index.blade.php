@@ -29,15 +29,11 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Stambuk</th>
-                                            {{-- <th>Created At</th> --}}
                                             <th>Action</th>
                                         </tr>
-                                        <?php
-                                        $i = $datas->firstItem();
-                                        ?>
-                                        @foreach ($datas as $data)
+                                        @foreach ($datas as $i => $data)
                                             <tr>
-                                                <td>{{ $i++ }}</td>
+                                                <td>{{ ++$i }}</td>
                                                 <td>{{ $data->nama }}</td>
                                                 <td>{{ $data->stb }}</td>
                                                 <td class="d-flex">
@@ -56,11 +52,7 @@
                                         @endforeach
                                     </table>
                                 </div>
-                                @if ($datas->hasPages())
-                                    <div class="card-footer float-right">
-                                        {{ $datas->links() }}
-                                    </div>
-                                @endif
+                                
                             </div>
 
                         </div>

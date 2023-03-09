@@ -10,7 +10,7 @@ class MhsController extends Controller
 {
     public function index() 
     {
-        $datas = Mahasiswa::orderBy('id', 'DESC')->paginate(5);
+        $datas = Mahasiswa::orderBy('id', 'DESC')->get();
         return view('admin.mahasiswa.index', ['datas' => $datas]);
     }
 

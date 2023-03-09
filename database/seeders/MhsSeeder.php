@@ -16,13 +16,7 @@ class MhsSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('id_ID');
-        for($i = 1; $i <= 20; $i++) {
-            DB::table('mahasiswas')->insert([
-                'stb' => $faker->numberBetween(200000, 300000),
-                'nama' => $faker->name,
-            ]);
-        }
+        
  
     }
 }
