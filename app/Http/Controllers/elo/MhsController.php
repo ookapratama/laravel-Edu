@@ -10,8 +10,18 @@ class MhsController extends Controller
 {
     public function index() 
     {
-        $datas = Mahasiswa::orderBy('id', 'DESC')->get();
+        $datas = Mahasiswa::orderBy('id', 'DESC')->paginate(5);
         return view('admin.mahasiswa.index', ['datas' => $datas]);
+    }
+
+    public function cari(Request $request) {
+
+        $cari = $request->cari;
+        $data = Mahasiswa::where('nama', 'like', "%". $cari ."%")->orWhere('stb', 'like', "%". $cari . "%")->paginate();
+
+        return view('admin.mahasiswa.index', ['datas' => $data]);
+
+
     }
 
     public function add() {

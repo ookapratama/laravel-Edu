@@ -19,9 +19,35 @@
                                 <h4>Tabel Mahasiswa</h4>
                             </div>
 
+                            <?php
+                            $i = $datas->firstItem();
+                            ?>
+
                             <div class="card-body">
-                                <a href="{{ route('add.mahasiswa') }} " class="btn btn-primary float-left mb-3" >+
-                                    Tambah Data</a>
+
+                                <div class="d-flex justify-content-between">
+
+                                    <div class="">
+
+                                        <a href="{{ route('add.mahasiswa') }} " class="btn btn-primary float-left mb-3">+
+                                            Tambah Data
+                                        </a>
+                                    </div>
+
+                                    <form action="{{ route('cari.mahasiswa') }}" method="GET">
+                                        <div class="form-group">
+                                            <div class="d-flex">
+
+                                                <input type="text" class="form-control"
+                                                    placeholder="Masukkan Pencarian..." name="cari">
+
+                                                <button type="submit" class="btn btn-warning">Cari</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
                                 <div class="table-responsive">
 
                                     <table class="table table-striped table-md">
@@ -31,13 +57,14 @@
                                             <th>Stambuk</th>
                                             <th>Action</th>
                                         </tr>
-                                        @foreach ($datas as $i => $data)
+                                        @foreach ($datas as $data)
                                             <tr>
-                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $i++ }}</td>
                                                 <td>{{ $data->nama }}</td>
                                                 <td>{{ $data->stb }}</td>
                                                 <td class="d-flex">
-                                                    <a href="{{ route('edit.mahasiswa', $data->id ) }} " class="btn editBtn btn-icon btn-warning">
+                                                    <a href="{{ route('edit.mahasiswa', $data->id) }} "
+                                                        class="btn editBtn btn-icon btn-warning">
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                     <form action="{{ route('destroy.mahasiswa', $data->id) }}"
@@ -52,7 +79,11 @@
                                         @endforeach
                                     </table>
                                 </div>
-                                
+                                @if ($datas->hasPages())
+                                    <div class="card-footer">
+                                        {{ $datas->links() }}
+                                    </div>
+                                @endif
                             </div>
 
                         </div>
@@ -62,7 +93,4 @@
             </div>
         </section>
     </div>
-
 @endsection
-
-
