@@ -20,8 +20,20 @@
                             </div>
 
                             <div class="card-body">
-                                <a href="{{ route('add.mahasiswa') }} " class="btn btn-primary float-left mb-3" >+
-                                    Tambah Data</a>
+                                <div class="d-flex justify-content-between">
+                                    <div class="">
+
+                                        <a href="{{ route('add.mahasiswa') }} " class="btn btn-primary float-left mb-3">+
+                                            Tambah Data</a>
+                                    </div>
+                                    <form action="{{ route('search.mahasiswa') }}" method="GET">
+                                    <div class="form-group d-flex">
+                                            <input type="text" name="cari" class="form-control"
+                                                placeholder="Masukkan Pencarian...">
+                                            <button class="btn btn-warning" type="submit">Cari</button>
+                                        </div>
+                                    </form>
+                                </div>
                                 <div class="table-responsive">
 
                                     <table class="table table-striped table-md">
@@ -41,7 +53,8 @@
                                                 <td>{{ $data->nama }}</td>
                                                 <td>{{ $data->stb }}</td>
                                                 <td class="d-flex">
-                                                    <a href="{{ route('edit.mahasiswa', $data->id ) }} " class="btn editBtn btn-icon btn-warning">
+                                                    <a href="{{ route('edit.mahasiswa', $data->id) }} "
+                                                        class="btn editBtn btn-icon btn-warning">
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                     <form action="{{ route('destroy.mahasiswa', $data->id) }}"
@@ -70,7 +83,4 @@
             </div>
         </section>
     </div>
-
 @endsection
-
-

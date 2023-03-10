@@ -14,6 +14,12 @@ class MhsController extends Controller
         return view('admin.mahasiswa.index', ['datas' => $datas]);
     }
 
+    public function search(Request $request) {
+        $cari = $request->cari;
+        $data = Mahasiswa::where('nama', 'like' , "%". $cari . "%")->orWhere('stb', 'like' , "%". $cari . "%")->paginate();
+        return view('admin.mahasiswa.index', ['datas' => $data]);
+    }
+
     public function add() {
         return view('admin.mahasiswa.add');
     }

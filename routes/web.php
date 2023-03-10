@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\elo'], f
     Route::get('/', [AdminController::class, 'admin'])->name('admin');
 
     Route::group(['prefix' => 'mahasiswa'], function () {
+        Route::get('/search', [MhsController::class, 'search'])->name('search.mahasiswa');
         Route::get('/', [MhsController::class, 'index'])->name('index.mahasiswa');
         Route::get('/add', [MhsController::class, 'add'])->name('add.mahasiswa');
         Route::post('/store', [MhsController::class, 'store'])->name('store.mahasiswa');
