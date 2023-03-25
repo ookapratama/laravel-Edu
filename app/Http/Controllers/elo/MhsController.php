@@ -21,7 +21,6 @@ class MhsController extends Controller
 
         return view('admin.mahasiswa.index', ['datas' => $data]);
 
-
     }
 
     public function add() {
@@ -30,7 +29,6 @@ class MhsController extends Controller
 
     public function store(Request $request) 
     {
-        // dd($request);
         Mahasiswa::create($request->all());
         return redirect()->route('index.mahasiswa');
     }

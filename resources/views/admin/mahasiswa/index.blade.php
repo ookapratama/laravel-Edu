@@ -29,7 +29,8 @@
 
                                     <div class="">
 
-                                        <a href="{{ route('add.mahasiswa') }} " class="btn btn-primary float-left mb-3">+
+                                        <a href="#" data-toggle="modal" data-target="#modalAdd"
+                                            class="btn btn-primary float-left mb-3">+
                                             Tambah Data
                                         </a>
                                     </div>
@@ -63,17 +64,15 @@
                                                 <td>{{ $data->nama }}</td>
                                                 <td>{{ $data->stb }}</td>
                                                 <td class="d-flex">
-                                                    <a href="{{ route('edit.mahasiswa', $data->id) }} "
-                                                        class="btn editBtn btn-icon btn-warning">
+                                                    <a href="#" data-toggle="modal"
+                                                        data-target="#modalEdit{{ $data->id }}"
+                                                        class="btn btn-icon btn-warning">
                                                         <i class="far fa-edit"></i>
                                                     </a>
-                                                    <form action="{{ route('destroy.mahasiswa', $data->id) }}"
-                                                        method="POST">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-icon btn-danger"><i
-                                                                class="fas fa-trash"></i></button>
-                                                    </form>
+                                                    <a href="#" data-toggle="modal"
+                                                        data-target="#modalHapus{{ $data->id }}"
+                                                        class="btn btn-icon btn-danger"><i class="fa fa-trash"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -93,4 +92,7 @@
             </div>
         </section>
     </div>
+    @include('admin.modals.add')
+    @include('admin.modals.edit')
+    @include('admin.modals.delete')
 @endsection
