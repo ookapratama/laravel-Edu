@@ -8,4 +8,6 @@
 - **[CRUD with Modal]**
 
 
-note : php artisan migrate --seed for data Faker
+note : 
+    - php artisan migrate --seed untuk data Faker
+    - composser update setelah clone
