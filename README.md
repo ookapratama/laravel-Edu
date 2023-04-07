@@ -3,4 +3,11 @@
 - **[Fundamental dan Struktur Projek]**
 - **[Template Engine dan Database Migration]**
 - **[CRUD with Eloquent ORM]**
-- **[CRUD with Repository]**
+- **[CRUD with Repository Design Pattern]**
+- **[Pagination dan Searching]**
+- **[CRUD with Modal]**
+
+
+note : 
+    - php artisan migrate --seed untuk data Faker
+    - composser update setelah clone
