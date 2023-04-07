@@ -21,6 +21,13 @@ class LoginController extends Controller
 
     public function store(Request $request) {
         $data = $request->all();
+
+        $user = User::where('username', $data['username'])->where('role', $data['role'])->first();
+        // dd($user ) ;
+        if ($user != null) {
+            return redirect()->route('reset_password')->with('pesan','Username sudah ada');
+        }
+
         $data['password'] = Hash::make($data['password']);
         // dd($data['password']);
         User::create($data);

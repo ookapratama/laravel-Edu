@@ -13,6 +13,11 @@
             </div>
 
             <div class="card-body">
+                @if ($message = Session::get('pesan'))
+                    <div class="alert alert-danger alert-block">
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @endif
                 <form method="POST" action="{{ route('store') }}">
                     @csrf
                     <div class="row">
@@ -42,20 +47,20 @@
                                 <option value="mahasiswa">Mahasiswa</option>
                             </select>
                         </div>
-                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">
-                            Register
-                        </button>
-                    </div>
-                </form>
             </div>
 
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    Register
+                </button>
+            </div>
+            </form>
         </div>
-        <div class="simple-footer">
-            Laravel-edu &copy; Education Departement
-        </div>
+
+    </div>
+    <div class="simple-footer">
+        Laravel-edu &copy; Education Departement
+    </div>
     </div>
 @endsection
