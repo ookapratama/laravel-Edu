@@ -6,8 +6,9 @@
 - **[CRUD with Repository Design Pattern]**
 - **[Pagination dan Searching]**
 - **[CRUD with Modal]**
+- **[Login Autentikasi Middleware]**
 
 
 note : 
-    - php artisan migrate --seed untuk data Faker
+    - php artisan migrate --seed untuk data Faker\n
     - composser update setelah clone
