@@ -44,10 +44,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\elo', 'm
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\elo\Auth'], function () {
 
     Route::get('/login', 'LoginController@login')->name('login');
-    Route::post('/login', 'LoginController@auth_login')->name('auth_login');
     Route::get('/register', 'LoginController@register')->name('register');
     Route::post('/register', 'LoginController@store')->name('store');
-    Route::post('/logout', 'LoginController@logout')->name('logout');
     Route::get('/reset_password', 'LoginController@reset_password')->name('reset_password');
     Route::put('/reset_password', 'LoginController@reset')->name('reset');
 

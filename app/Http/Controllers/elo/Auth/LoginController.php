@@ -34,23 +34,7 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
-    public function auth_login (Request $request) {
-        $user = User::where('username', $request->username)->first();
-        // dd($user->role);
-        $password = $request->password;
-
-        if($user == null) {
-            // return 'login';
-            return redirect()->route('login');
-        }
-
-        if (Auth::attempt(['username' => $user->username, 'password' => $password])) {
-            
-            return redirect()->route('admin');
-
-        }
-        
-    }
+   
 
     public function reset_password () {
         return view('auth.forget');       
@@ -77,9 +61,5 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
-    public function logout() {
-        Auth::logout();
-        return redirect()->route('login');
-    }
 
 }
