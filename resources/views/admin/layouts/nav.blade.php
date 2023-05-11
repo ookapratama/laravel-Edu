@@ -232,7 +232,7 @@
                             <img alt="image" src="../assets/img/avatar/avatar-1.png"
                                 class="rounded-circle mr-1" />
                             <div class="d-sm-none d-lg-inline-block">
-                                Hi, 
+                                Hi, {{ auth()->user()->username }}
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -247,12 +247,15 @@
                                 <i class="fas fa-cog"></i> Settings
                             </a>
                             <div class="dropdown-divider"></div>
-                            <form action="#" method="POST">
+                            {{-- <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button href=" " class="dropdown-item has-icon text-danger">
                                     <i class="fas fa-sign-out-alt"></i> Logout
-                                </button>
-                            </form>
+                                </bu/logoutton>
+                            </form> --}}
+                            <a href="/logout" class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
                         </div>
                     </li>
                 </ul>

@@ -14,6 +14,16 @@ class LoginController extends Controller
     public function login() {
         return view('auth.login');
     }
+
+    public function cek_login(Request $request) {
+        $data = User::where('username', $request->username)->first();
+        
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+            return redirect()->route('admin');
+        }
+        return redirect()->route('login');        
+
+    }
     
     public function register() {
         return view('auth.register');
@@ -61,5 +71,10 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('login');
+    }
+    ///MILA JELEKKKKK
 
 }

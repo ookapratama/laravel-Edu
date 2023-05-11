@@ -2,12 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Admin
+class Validasi
 {
     /**
      * Handle an incoming request.
@@ -18,6 +17,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        
+        // dd("tes");
+        if (Auth::check() && Auth::user()->role == 'dosen') {
+            return $next($request);
+        }
+        return redirect()->route('login');
     }
 }
